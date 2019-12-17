@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    class Order
+   public class Order
     {
         public Order()
         {
@@ -28,30 +28,6 @@ namespace ACM.BL
             // assumption is both of them are required and need to be validated both.
             if (OrderDate == null) isValid = false;
             return isValid;
-        }
-        public bool Save()
-        {
-            return true;
-        }
-        /// <summary>
-        /// Retrieve one order.
-        /// </summary>
-        /// <param name="orderId"></param>
-        /// <returns></returns>
-        public Order Retrieve(int orderId)
-        {
-            //code that retrieves the defined order
-            return new Order();
-        }
-
-        /// <summary>
-        /// Retrieve all orders.
-        /// </summary>
-        /// <returns></returns>
-        public List<Order> Retrieve()
-        {
-            //code that retrieve all of the orders
-            return new List<Order>();
         }
     }
 }
