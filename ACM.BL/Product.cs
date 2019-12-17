@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    class Product
+   public class Product
     {
 
         public Product()
@@ -28,30 +28,6 @@ namespace ACM.BL
             if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;
             if (CurrentPrice == null) isValid = false;
             return isValid;
-        }
-        public bool Save()
-        {
-            return true;
-        }
-        /// <summary>
-        /// Retrieve one product.
-        /// </summary>
-        /// <param name="productid"></param>
-        /// <returns></returns>
-        public Product Retrieve(int productId)
-        {
-            //code that retrieves the defined product
-            return new Product();
-        }
-
-        /// <summary>
-        /// Retrieve all products.
-        /// </summary>
-        /// <returns></returns>
-        public List<Product> Retrieve()
-        {
-            //code that retrieve all of the products
-            return new List<Product>();
         }
     }
 }
