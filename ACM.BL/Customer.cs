@@ -8,13 +8,24 @@ namespace ACM.BL
 {
     public class Customer
     {
+        // need to define the default constructor as we defined the overload constructor
+        // otherwise it does not need to be defined.(it is automatically create) 
+        public Customer()
+        {
+
+        }
+
+        public Customer(int customerId)
+        {
+            CustomerId = CustomerId;
+        }
         // in this case we want to adding the ID but never setting it.
         // but only this class can set it.
         public int CustomerId { get; private set; }
         public string EmailAddress { get; set; }
 
         // when there is no need to add logics into the getter and setter,
-        // this a good wat to initials it.(auto  implemented property syntax)
+        // this a good way to initials it.(auto  implemented property syntax)
         public string FirstName { get; set; }
 
         /*add this as a shared value for all of the object instances that
@@ -59,6 +70,36 @@ namespace ACM.BL
             {
                 _lastName = value;
             }
+        }
+
+        /// <summary>
+        /// Retrieve one customer.
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        public Customer Retrieve(int customerId)
+        {
+            //code that retrieves the defined customer
+            return new Customer();
+        }
+
+        /// <summary>
+        /// Retrieve all customers.
+        /// </summary>
+        /// <returns></returns>
+        public List<Customer> Retrieve()
+        {
+            //code that retrieve all of the customers
+            return new List<Customer>();
+        }
+
+        /// <summary>
+        /// Saves the current customer.
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            return true;
         }
 
         /// <summary>
