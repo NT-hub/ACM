@@ -36,17 +36,17 @@ namespace ACM.BLTest
         [TestMethod]
         public void FullNameFirstNameEmpty()
         {
-            //-- Arrange
+            //-- Arrange (set up the test)
             Customer customer = new Customer
             {
                 LastName = "Baggins"
             };
             string expected = "Baggins";
 
-            //-- Act(we are performing operation we are testing)
+            //-- Act (access the member being tested)
             string actual = customer.FullName;
 
-            //-- Assert(we are verified expected value equals the actual value)
+            //-- Assert(Determine the result)
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
@@ -91,6 +91,50 @@ namespace ACM.BLTest
 
             //-- Assert
             Assert.AreEqual(3, Customer.InstanceCount);
+        }
+
+        [TestMethod]
+        public void ValidateValid()
+        {
+            //-- Arrange
+            Customer customer = new Customer
+            {
+                LastName = "Baggins",
+                EmailAddress = "Blingo@test.com"
+            };
+            bool expected = true;
+            // Act
+            var actual = customer.Validate();
+            //-- Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateMissingLastName()
+        {
+            //-- Arrange
+            Customer customer = new Customer
+            {
+                EmailAddress = "Blingo@test.com"
+            };
+            bool expected = false;
+            // Act
+            var actual = customer.Validate();
+            //-- Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateMissingEmailAddress()
+        {
+            //-- Arrange
+            Customer customer = new Customer
+            {
+                LastName = "Baggins",
+            };
+            bool expected = false;
+            // Act
+            var actual = customer.Validate();
+            //-- Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

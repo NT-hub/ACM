@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 namespace ACM.BL
 {
     public class Customer
-    { 
-     // in this case we want to adding the ID but never setting it.
-     // but only this class can set it.
-     public int CustomerId { get; private set; }
-     public string EmailAddress { get; set; }
+    {
+        // in this case we want to adding the ID but never setting it.
+        // but only this class can set it.
+        public int CustomerId { get; private set; }
+        public string EmailAddress { get; set; }
 
-     // when there is no need to add logics into the getter and setter,
-     // this a good wat to initials it.(auto  implemented property syntax)
-     public string FirstName { get; set; }
+        // when there is no need to add logics into the getter and setter,
+        // this a good wat to initials it.(auto  implemented property syntax)
+        public string FirstName { get; set; }
+
+        /*add this as a shared value for all of the object instances that
+        we are going to create for "Customer" class.
+        adding static modifier on a class member denotes that member belongs to
+        itself rather than to any specific instance
+        */
+
+        public static int InstanceCount { get; set; }
 
         // add private access modifier to make sure no code
         // can access to it.
@@ -38,7 +46,7 @@ namespace ACM.BL
                 return fullName;
             }
         }
-         private string _lastName;
+        private string _lastName;
 
         // C# Property(full property syntax)
         public string LastName
@@ -52,12 +60,19 @@ namespace ACM.BL
                 _lastName = value;
             }
         }
-        /*add this as a shared value for all of the object instances that
-        we are going to create for "Customer" class.
-        adding static modifier on a class member denotes that member belongs to
-        itself rather than to any specific instance
-        */
-        public static int InstanceCount{ get; set; }
+
+        /// <summary>
+        /// Validates the customer data.
+        /// </summary>
+        /// <returns></returns>
+        public bool Validate()
+        {
+            var isValid = true;
+            // assumption is both of them are required and need to be validated both.
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+                return isValid;
+        }
     }
 }
 
