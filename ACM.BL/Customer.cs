@@ -52,6 +52,12 @@ namespace ACM.BL
                 _lastName = value;
             }
         }
+        /*add this as a shared value for all of the object instances that
+        we are going to create for "Customer" class.
+        adding static modifier on a class member denotes that member belongs to
+        itself rather than to any specific instance
+        */
+        public static int InstanceCount{ get; set; }
     }
 }
 

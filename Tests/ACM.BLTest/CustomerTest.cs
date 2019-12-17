@@ -51,7 +51,7 @@ namespace ACM.BLTest
         }
         [TestMethod]
         public void FullNameLastNameEmpty()
-         {
+        {
               //-- Arrange
               Customer customer = new Customer
               {
@@ -64,6 +64,33 @@ namespace ACM.BLTest
 
              //-- Assert(we are verified expected value equals the actual value)
              Assert.AreEqual(expected, actual);
-         }
+        }
+        [TestMethod]
+        public void StaticTest()
+        {
+            // create 3 new and different instances of
+            //Customer class ("new" keyword for creating
+            //instance)
+
+            //-- Arrange
+            var c1 = new Customer();
+            c1.FirstName = "Bilbo";
+            // instance of class can not access to the static
+            //property.just the class(name) can access to it.
+            Customer.InstanceCount += 1;
+
+            var c2 = new Customer();
+            c1.FirstName = "Frodo";
+            Customer.InstanceCount += 1;
+
+            var c3 = new Customer();
+            c1.FirstName = "Roise";
+            Customer.InstanceCount += 1;
+
+            //-- Act
+
+            //-- Assert
+            Assert.AreEqual(3, Customer.InstanceCount);
+        }
     }
 }
