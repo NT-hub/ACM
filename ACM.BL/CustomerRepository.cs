@@ -8,6 +8,12 @@ namespace ACM.BL
 {
    public class CustomerRepository
     {
+        
+        private AddressRepository addressRepository { get; set; }
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
         public Customer Retrieve (int customerId)
         {
             //create the instance of the Customer class
@@ -23,6 +29,9 @@ namespace ACM.BL
                 customer.EmailAddress = "Blingo@test.com";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Baggins";
+                //return result as a list
+                //establising collaborative relationship between CustomerRepository and AddressRepository
+                customer.AddressList = addressRepository.RetrieveByCustomerId(customerId).ToList();
             }
             return customer;
         }

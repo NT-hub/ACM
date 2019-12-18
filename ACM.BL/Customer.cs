@@ -9,8 +9,11 @@ namespace ACM.BL
     public class Customer
     {
         // need to define the default constructor as we defined the overload constructor
-        // otherwise it does not need to be defined.(it is automatically create) 
-        public Customer()
+        // otherwise it does not need to be defined.(it is automatically create)
+        //-----------------------------------------------------------------------
+        // :this(0) --> an exmple of constructor chaining. when default
+        //  constructor calls parameterized constructor
+        public Customer(): this(0)
         {
 
         }
@@ -18,6 +21,10 @@ namespace ACM.BL
         public Customer(int customerId)
         {
             CustomerId = CustomerId;
+            // we need to initialize it here otherwise it throwes exception,
+            // because it is not possible to initialise it when we define a list
+            // property.(create an instance of a list in constructor)
+            AddressList = new List<Address>();
         }
         // in this case we want to adding the ID but never setting it.
         // but only this class can set it.
@@ -33,8 +40,8 @@ namespace ACM.BL
         adding static modifier on a class member denotes that member belongs to
         itself rather than to any specific instance
         */
-
         public static int InstanceCount { get; set; }
+        public List<Address> AddressList { get; set; }
 
         // add private access modifier to make sure no code
         // can access to it.
