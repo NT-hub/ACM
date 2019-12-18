@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-   public class Product
+   public class Product: EntityBase
     {
 
         public Product()
@@ -31,7 +31,7 @@ namespace ACM.BL
         }
 
         //Lambda Expersion for above function : public override string ToString() =>ProductName;
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             // assumption is both of them are required and need to be validated both.

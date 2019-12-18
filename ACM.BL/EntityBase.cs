@@ -18,9 +18,19 @@ namespace ACM.BL
         public EntityStateOption EntityState { get; set; }
         public bool HasChanges { get; set; }
         public bool IsNew { get; private set; }
+
+        // we want this property to call the Validate
+        // method of the appropriate entity object
+        // it can not call our derived class Validate method
+        // but it can call a local Validate method.
         public bool IsValid
         {
-            get { return true; } 
+            get { return Validate(); } 
+        }
+        // create local Validate function
+        public bool Validate()
+        {
+
         }
     }
 }
