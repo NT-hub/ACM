@@ -43,6 +43,9 @@ namespace ACM.BL
         public static int InstanceCount { get; set; }
         public List<Address> AddressList { get; set; }
 
+        // add more type of customer
+        public int Customertype { get; set; }
+
         // add private access modifier to make sure no code
         // can access to it.
         public string FullName

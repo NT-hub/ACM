@@ -27,6 +27,8 @@ namespace ACM.BL
         public DateTimeOffset? OrderDate { get; set; }
         public string Address { get; set; }
 
+        public override string ToString() => $"{OrderDate.Value.Date}({OrderId})";
+
         public bool Validate()
         {
             var isValid = true;

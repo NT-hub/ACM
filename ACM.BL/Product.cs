@@ -21,6 +21,16 @@ namespace ACM.BL
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public decimal? CurrentPrice { get; set; }
+
+        //overriding Tostring function which has been inherited
+        // from Object class
+        public override string ToString()
+        {
+            // return base.ToString();
+            return ProductName;
+        }
+
+        //Lambda Expersion for above function : public override string ToString() =>ProductName;
         public bool Validate()
         {
             var isValid = true;
