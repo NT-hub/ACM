@@ -28,9 +28,9 @@ namespace ACM.BL
             get { return Validate(); } 
         }
         // create local Validate function
-        public bool Validate()
-        {
-
-        }
+        // Note: "abstract" keyword in a methode just can be add in abstract class.
+        // Note: abstract function does not need body
+        public abstract bool Validate();
+        
     }
 }
