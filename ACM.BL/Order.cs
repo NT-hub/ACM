@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acme.common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-   public class Order
+   public class Order : EntityBase , ILoggable
     {
         public Order(): this(0)
         {
@@ -27,10 +28,18 @@ namespace ACM.BL
         public DateTimeOffset? OrderDate { get; set; }
         public string Address { get; set; }
 
+        public string Log()
+        {
+            var logString = OrderId + ":" +
+             this.OrderDate.Value.Date + " " +
+             "Status:" + EntityState.ToString();
+            return logString;
+        }
+
         //overridding
         public override string ToString() => $"{OrderDate.Value.Date}({OrderId})";
 
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             // assumption is both of them are required and need to be validated both.

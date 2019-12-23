@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Acme.common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ACM.BL
 {
-    public class Customer : EntityBase
+    public class Customer : EntityBase , ILoggable
     {
         // need to define the default constructor as we defined the overload constructor
         // otherwise it does not need to be defined.(it is automatically create)
