@@ -19,7 +19,19 @@ namespace ACM.BL
         }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
+
+        private string _productName;
+        public string ProductDescription
+        {
+            get
+            {
+                return _productName;
+            }
+            set
+            {
+                _productName = value;
+            }
+        }
         public decimal? CurrentPrice { get; set; }
 
         //overriding Tostring function which has been inherited
