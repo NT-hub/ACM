@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Acme.common
 {
-    public class StringHandler
+    public static class StringHandler
     {
         // this function takes in the string to process 
-        public string InsertSpaces(string source)
+        public static string InsertSpaces(string source)
         {
             string result = string.Empty;
             if (!String.IsNullOrWhiteSpace(source))
