@@ -18,11 +18,17 @@ namespace Acme.common
                 {
                     if (char.IsUpper(letter))
                     {
+                        // Trim any spaces already there(added after second test 
+                        // case failed)
+                        result = result.Trim();
                         result += " ";
                     }
                     result += letter;
                 }
             }
+            // added after running the first test case, because it
+            //added a spca before first upercase lettert as well.
+            result = result.Trim();
             return result;
         }
     }
