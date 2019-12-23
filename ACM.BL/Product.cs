@@ -43,6 +43,17 @@ namespace ACM.BL
             return ProductName;
         }
 
+
+
+        public String Log()
+        {
+            var logString = ProductId + ":" +
+                ProductDescription + " " +
+                "Status:" + EntityState.ToString();
+            return logString;
+
+        }
+
         //Lambda Expersion for above function : public override string ToString() =>ProductName;
         //Note: as a drived class we need to override this fuction.
         public override bool Validate()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         // need to define the default constructor as we defined the overload constructor
         // otherwise it does not need to be defined.(it is automatically create)
@@ -84,11 +84,20 @@ namespace ACM.BL
 
         public override string ToString() => FullName;
 
+        public string Log()
+        {
+            var logString = CustomerId + ":" +
+                FullName + " " +
+                "Email :" + EmailAddress + " " +
+                "Status:" + EntityState.ToString();
+            return logString;
+        }
+
         /// <summary>
         /// Validates the customer data.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             // assumption is both of them are required and need to be validated both.
@@ -96,6 +105,8 @@ namespace ACM.BL
             if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
                 return isValid;
         }
+
+        
     }
 }
 
